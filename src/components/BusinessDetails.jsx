@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
 import { Button, Container, Paper, Box } from "@mui/material";
 import UserForm from "./UserForm";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 class BusinessDetails extends React.Component {
   render() {
@@ -20,7 +20,14 @@ class BusinessDetails extends React.Component {
           }}
         >
           <Toolbar>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography
+              component={Link}
+              to="/"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ textDecoration: "none" }}
+            >
               Loan Application
             </Typography>
           </Toolbar>
