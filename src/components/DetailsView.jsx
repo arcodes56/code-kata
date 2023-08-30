@@ -11,6 +11,7 @@ class DetailsView extends React.Component {
       year: "2001",
       address: "asfsdgrhfhfh dfhdfh dfh 24",
       country: "US",
+      loanAmt: 1000000,
     };
     return (
       <>
@@ -32,17 +33,21 @@ class DetailsView extends React.Component {
               <h5>Year of Establishment</h5>
               <h6>{data.year}</h6>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={3}>
               <h5> Business Address</h5>
               <h6>{data.address}</h6>
             </Grid>
-            <Grid item xs={4} md={4}>
+            <Grid item xs={3} md={3}>
               <h5> Country</h5>
               <h6>{data.country}</h6>
             </Grid>
-            <Grid item xs={4} md={4}>
+            <Grid item xs={3} md={3}>
               <h5> Account provider</h5>
               <h6>{data.accountProvider}</h6>
+            </Grid>
+            <Grid item xs={3} md={3}>
+              <h5> Loan Amount </h5>
+              <h6>{data.loanAmt}</h6>
             </Grid>
           </Grid>
         </Box>

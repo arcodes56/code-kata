@@ -79,7 +79,7 @@ class UserForm extends React.Component {
               variant="standard"
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={6} sm={6}>
             <FormControl variant="standard" fullWidth>
               <InputLabel>Account Provider</InputLabel>
               <Select labelId="select-label" id="simple-select" label="Age">
@@ -87,6 +87,17 @@ class UserForm extends React.Component {
                 <MenuItem>MYOB</MenuItem>
               </Select>
             </FormControl>
+          </Grid>
+          <Grid item xs={6} sm={6}>
+            <TextField
+              required
+              type="number"
+              id="loanAmt"
+              name="loanAmt"
+              label="Loan Amount"
+              fullWidth
+              variant="standard"
+            />
           </Grid>
         </Grid>
       </>

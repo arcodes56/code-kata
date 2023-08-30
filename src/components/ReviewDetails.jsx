@@ -14,6 +14,13 @@ import BalanceSheetTableView from "./BalanceSheetTableView";
 import DetailsView from "./DetailsView";
 
 class ReviewDetails extends React.Component {
+  constructor() {
+    super();
+    this.handleSend = this.handleSend.bind(this);
+  }
+  componentDidMount() {
+    this.props.fetchBalanceSheet("xyz", "accountproviderhere", 10000);
+  }
   render() {
     return (
       <>
@@ -61,7 +68,7 @@ class ReviewDetails extends React.Component {
               <Typography component="h3" variant="h6" align="center">
                 Balance Sheet
               </Typography>
-              <BalanceSheetTableView />
+              <BalanceSheetTableView rows={this.props.data} />
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Button
                   variant="contained"
@@ -73,7 +80,7 @@ class ReviewDetails extends React.Component {
                 <Button
                   variant="contained"
                   sx={{ mt: 3, ml: 1 }}
-                  onClick={() => this.props.history.push("/outcome")}
+                  onClick={this.handleSend}
                 >
                   Send Application
                 </Button>
@@ -83,6 +90,11 @@ class ReviewDetails extends React.Component {
         </Grid>
       </>
     );
+  }
+  async handleSend() {
+    await this.props.sendApplication(this.props.data);
+    const decision = this.props.decision;
+    this.props.history.push(`/outcome?decision=${decision}`);
   }
 }
 export default withRouter(ReviewDetails);

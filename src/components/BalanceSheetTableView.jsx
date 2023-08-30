@@ -1,6 +1,9 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 class BalanceSheetTableView extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     const sheet = [
       {
@@ -32,6 +35,8 @@ class BalanceSheetTableView extends React.Component {
         assetsValue: 223452,
       },
     ];
+    console.log(this.props.rows);
+
     const columns = [
       { field: "year", headerName: "Year", width: 130 },
       { field: "month", headerName: "Month", width: 130, sortable: true },
@@ -41,7 +46,7 @@ class BalanceSheetTableView extends React.Component {
     return (
       <>
         <DataGrid
-          rows={sheet}
+          rows={this.props.rows}
           columns={columns}
           initialState={{
             pagination: {

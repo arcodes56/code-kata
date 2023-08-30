@@ -4,11 +4,17 @@ import { ReactComponent as Pending } from "../assets/loan_wait.svg";
 import { ReactComponent as Success } from "../assets/loan_success.svg";
 import { withRouter, Link } from "react-router-dom";
 class Outcome extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      outcome: "pending",
+      outcome: "",
     };
+  }
+  componentDidMount() {
+    const url_string = window.location.href;
+    var url = new URL(url_string);
+    const decision = url.searchParams.get("decision");
+    this.setState({ outcome: decision });
   }
   render() {
     return (
