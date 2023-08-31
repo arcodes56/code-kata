@@ -1,8 +1,7 @@
 import {BalanceSheetMockData} from "../../mockedData/BalanceSheetMockData"
 import { BALANCE_SHEET_FETCH_SUCCESS, BALANCE_SHEET_FETCH_FAILURE, DECISION_FETCH_ERROR, DECISION_FETCH_SUCCESS } from "./SheetActionTypes"
 import axios from "axios";
-
-console.log('action called')
+ 
 export function fetchBalanceSheet (businessName, accProvider, loanAmt) {
     return (dispatch)=> {
         axios.get(`/api/getBalanceSheets/${businessName}/${accProvider}`)
@@ -26,9 +25,9 @@ export function fetchBalanceSheet (businessName, accProvider, loanAmt) {
     }
 }
 
-export function sendApplication(data) {
+export function sendApplication(data, preAssesment, profitLossSummary) {
     return (dispatch) => {
-        axios.post('/api/decisionEngine', data)
+        axios.post('/api/decisionEngine', {data: data, preAssesment: preAssesment, profitLossSummary: profitLossSummary})
         .then(response => {
             dispatch({
                 type: DECISION_FETCH_SUCCESS,

@@ -2,11 +2,21 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 import AppBar from "@mui/material/AppBar";
-import { Button, Container, Paper, Box } from "@mui/material";
+import { Button, Container, Paper, Box, Alert } from "@mui/material";
 import UserForm from "./UserForm";
 import { withRouter, Link } from "react-router-dom";
 
 class BusinessDetails extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      showAlert: false,
+    };
+  }
+  componentDidMount() {
+    this.props.updateField("FIRST_NAME", "h");
+  }
   render() {
     return (
       <>
@@ -32,6 +42,9 @@ class BusinessDetails extends React.Component {
             </Typography>
           </Toolbar>
         </AppBar>
+        {this.state.showAlert && (
+          <Alert severity="error">Please fill all required fields</Alert>
+        )}
         <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
           <Paper
             elevation={5}
@@ -40,12 +53,12 @@ class BusinessDetails extends React.Component {
             <Typography component="h1" variant="h4" align="center">
               Details
             </Typography>
-            <UserForm />
+            <UserForm {...this.props} />
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <Button
                 variant="contained"
                 sx={{ mt: 3, ml: 1 }}
-                onClick={() => this.props.history.push("/review")}
+                onClick={this.handleClick}
               >
                 Get balance sheet
               </Button>
@@ -54,6 +67,11 @@ class BusinessDetails extends React.Component {
         </Container>
       </>
     );
+  }
+  async handleClick() {
+    await this.props.validateForm();
+    if (this.props.isValidForm) this.props.history.push("/review");
+    else this.setState({ showAlert: true });
   }
 }
 export default withRouter(BusinessDetails);

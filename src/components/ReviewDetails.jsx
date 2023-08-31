@@ -55,7 +55,7 @@ class ReviewDetails extends React.Component {
               <Typography component="h3" variant="h6" align="center">
                 Review Details
               </Typography>
-              <DetailsView />
+              <DetailsView userData={this.props.userData} />
             </Paper>
           </Container>
         </Grid>
@@ -92,7 +92,11 @@ class ReviewDetails extends React.Component {
     );
   }
   async handleSend() {
-    await this.props.sendApplication(this.props.data);
+    await this.props.sendApplication(
+      this.props.userData,
+      this.props.preAssesment,
+      this.props.profitLossSummary
+    );
     const decision = this.props.decision;
     this.props.history.push(`/outcome?decision=${decision}`);
   }

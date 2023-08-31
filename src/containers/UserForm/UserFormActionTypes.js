@@ -1,0 +1,9 @@
+export const FIRST_NAME = "FIRST_NAME";
+export const LAST_NAME = "LAST_NAME";
+export const BUSINESS_NAME = "BUSINESS_NAME";
+export const BUSINESS_ADDRESS = "BUSINESS_ADDRESS";
+export const COUNTRY = "COUNTRY";
+export const ACCOUNT_PROVIDER = "ACCOUNT_PROVIDER";
+export const YEAR = "YEAR";
+export const LOAN_AMT = "LOAN_AMT";
+export const VALIDATE_FORM = "VALIDATE_FORM";

@@ -19,35 +19,39 @@ class DetailsView extends React.Component {
           <Grid container spacing={2}>
             <Grid item xs={3} md={3}>
               <h5> First Name</h5>
-              <h6>{data.firstName}</h6>
+              <h6>{this.props.userData.firstName}</h6>
             </Grid>
             <Grid item xs={3} md={3}>
               <h5> Last Name</h5>
-              <h6>{data.lastName}</h6>
+              <h6>{this.props.userData.lastName}</h6>
             </Grid>
             <Grid item xs={3} md={3}>
               <h5> Business Name</h5>
-              <h6>{data.businessName}</h6>
+              <h6>{this.props.userData.businessName}</h6>
             </Grid>
             <Grid item xs={3} md={3}>
               <h5>Year of Establishment</h5>
-              <h6>{data.year}</h6>
+              <h6>{this.props.userData.year}</h6>
             </Grid>
             <Grid item xs={3}>
               <h5> Business Address</h5>
-              <h6>{data.address}</h6>
+              <h6>
+                {this.props.userData.businessAddress
+                  ? this.props.userData.businessAddress
+                  : "-"}
+              </h6>
             </Grid>
             <Grid item xs={3} md={3}>
               <h5> Country</h5>
-              <h6>{data.country}</h6>
+              <h6>{this.props.userData.country}</h6>
             </Grid>
             <Grid item xs={3} md={3}>
               <h5> Account provider</h5>
-              <h6>{data.accountProvider}</h6>
+              <h6>{this.props.userData.accProvider}</h6>
             </Grid>
             <Grid item xs={3} md={3}>
               <h5> Loan Amount </h5>
-              <h6>{data.loanAmt}</h6>
+              <h6>{this.props.userData.loanAmt}</h6>
             </Grid>
           </Grid>
         </Box>

@@ -5,6 +5,7 @@ const initialState = {
     data: [],
     preAssesment: "",
     decision: "success",
+    profitLossSummary: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -14,13 +15,15 @@ const reducer = (state = initialState, action) => {
             percent = getPreAssessment(action.payload.data, action.payload.loanAmt);
             return Object.assign({}, state, {
                 data: action.payload.data,
-                preAssesment: percent,
+                preAssesment: percent[1],
+                profitLossSummary: percent[0],
             });
         case BALANCE_SHEET_FETCH_FAILURE:
             percent = getPreAssessment(action.payload.data, action.payload.loanAmt);
             return Object.assign({}, state, { 
                 data: BalanceSheetMockData,
-                preAssesment: percent,
+                preAssesment: percent[1],
+                profitLossSummary: percent[0],
             });
         case DECISION_FETCH_SUCCESS:
             return Object.assign({}, state, {
@@ -42,11 +45,9 @@ function getPreAssessment(data, loanAmt) {
         profit+= item.profitOrLoss;
         totalAsset+= item.assetsValue;
     })
-    console.log(profit);
-    console.log(totalAsset/12);
-    if(totalAsset/12 > loanAmt) return "100";
-    if(profit>0) return "60";
-    return "20";
+    if(totalAsset/12 > loanAmt) return [profit,"100"];
+    if(profit>0) return [profit,"60"];
+    return [profit,"20"];
 }
 
 
