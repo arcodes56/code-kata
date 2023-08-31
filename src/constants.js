@@ -1,0 +1,12 @@
+export const REQUIRED_FILEDS_ALERT_MESSAGE = "Please fill all required fields. Fields marked with * are required.";
+export const APPLICATION_NAME = "Loan Application";
+export const PRE_ASSESSMENT_100 = "100";
+export const PRE_ASSESSMENT_60 = "60";
+export const PRE_ASSESSMENT_DEFAULT = "20";
+export const LOAN_MIN_AMT = 0;
+export const LOAN_MAX_AMT = 100000;
+export const YEAR_REGEX = /^(?!0000)\d{4}$/;
+export const EMPTY_STRING_REGEX = /^\s*$/;
+export const EMPTY_FIELD_ERROR_MESSAGE = "Value cannot be empty";
+export const INVALID_YEAR_ERROR_MESSAGE = "Enter valid year";
+export const INVALID_LOAN_AMT_ERROR = `Loan amount should be in the range of ${LOAN_MIN_AMT} and ${LOAN_MAX_AMT} `;

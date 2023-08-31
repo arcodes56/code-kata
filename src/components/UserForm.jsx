@@ -147,6 +147,8 @@ class UserForm extends React.Component {
               required
               type="number"
               id="loanAmt"
+              error={this.props.loanAmtError != null}
+              helperText={this.props.loanAmtError}
               value={this.props.loanAmt ? this.props.loanAmt : ""}
               name="loanAmt"
               label="Loan Amount"

@@ -1,3 +1,4 @@
+import { EMPTY_FIELD_ERROR_MESSAGE, EMPTY_STRING_REGEX, INVALID_LOAN_AMT_ERROR, INVALID_YEAR_ERROR_MESSAGE, LOAN_MAX_AMT, LOAN_MIN_AMT, YEAR_REGEX } from "../../constants";
 import { ACCOUNT_PROVIDER, BUSINESS_ADDRESS, BUSINESS_NAME, COUNTRY, FIRST_NAME, LAST_NAME, LOAN_AMT, VALIDATE_FORM, YEAR } from "./UserFormActionTypes";
 console.log('red called')
 
@@ -76,16 +77,17 @@ const formReducer = (state = initialState, action) => {
     }
 };
 function validateField (str){
-    if(!str || /^\s*$/.test(str)) return "Error";
+    if(!str || EMPTY_STRING_REGEX.test(str)) return EMPTY_FIELD_ERROR_MESSAGE;
     else return null;
 }
 function validateYearField(year){
-    var pattern = /^(?!0000)\d{4}$/;
+    var pattern = YEAR_REGEX;
    if(pattern.test(year)) return null;
-   else return "Error year" ;
+   else return INVALID_YEAR_ERROR_MESSAGE ;
 }
-function validateLoanField(loan) {
-    if(loan<=0 && loan>= 100000) return "error";
+function validateLoanField(loanStr) {
+    const loan = Number(loanStr);
+    if(loan >= LOAN_MIN_AMT && loan >= LOAN_MAX_AMT) return INVALID_LOAN_AMT_ERROR;
     else return null;
 }
 function isValidForm(state) {

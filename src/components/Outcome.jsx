@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography, Box, Grid, Button } from "@mui/material";
 import { ReactComponent as Pending } from "../assets/loan_wait.svg";
 import { ReactComponent as Success } from "../assets/loan_success.svg";
 import { withRouter, Link } from "react-router-dom";
+import { APPLICATION_NAME } from "../constants";
 class Outcome extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +38,7 @@ class Outcome extends React.Component {
               color="inherit"
               noWrap
             >
-              Loan Application
+              {APPLICATION_NAME}
             </Typography>
           </Toolbar>
         </AppBar>

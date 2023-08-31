@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { ReactComponent as Logo } from "../assets/landing-img.svg";
 import { withRouter, Link as LinkRouter } from "react-router-dom";
+import { APPLICATION_NAME } from "../constants";
 
 class LandingPage extends React.Component {
   render() {
@@ -33,16 +34,16 @@ class LandingPage extends React.Component {
               color="inherit"
               noWrap
             >
-              Loan Application
+              {APPLICATION_NAME}
             </Typography>
           </Toolbar>
         </AppBar>
         <Box sx={{ flexGrow: 1, padding: "100px" }}>
           <Grid container spacing={2} justifyContent="center">
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <Logo height="300" />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <p>
                 Unlock Your Business Potential with Our Hassle-Free Loan
                 Application. Secure the funds you need to grow and thrive.

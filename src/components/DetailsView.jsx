@@ -3,16 +3,6 @@ import { Grid, Box } from "@mui/material";
 
 class DetailsView extends React.Component {
   render() {
-    const data = {
-      firstName: "abs",
-      lastName: "c",
-      businessName: "xyz",
-      accountProvider: "MYOB",
-      year: "2001",
-      address: "asfsdgrhfhfh dfhdfh dfh 24",
-      country: "US",
-      loanAmt: 1000000,
-    };
     return (
       <>
         <Box sx={{ flexGrow: 1 }}>

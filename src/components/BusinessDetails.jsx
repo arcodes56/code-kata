@@ -5,6 +5,7 @@ import AppBar from "@mui/material/AppBar";
 import { Button, Container, Paper, Box, Alert } from "@mui/material";
 import UserForm from "./UserForm";
 import { withRouter, Link } from "react-router-dom";
+import { APPLICATION_NAME, REQUIRED_FILEDS_ALERT_MESSAGE } from "../constants";
 
 class BusinessDetails extends React.Component {
   constructor(props) {
@@ -14,9 +15,7 @@ class BusinessDetails extends React.Component {
       showAlert: false,
     };
   }
-  componentDidMount() {
-    this.props.updateField("FIRST_NAME", "h");
-  }
+
   render() {
     return (
       <>
@@ -38,12 +37,12 @@ class BusinessDetails extends React.Component {
               noWrap
               sx={{ textDecoration: "none" }}
             >
-              Loan Application
+              {APPLICATION_NAME}
             </Typography>
           </Toolbar>
         </AppBar>
         {this.state.showAlert && (
-          <Alert severity="error">Please fill all required fields</Alert>
+          <Alert severity="error">{REQUIRED_FILEDS_ALERT_MESSAGE}</Alert>
         )}
         <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
           <Paper

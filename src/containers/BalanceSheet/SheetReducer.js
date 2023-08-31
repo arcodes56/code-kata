@@ -1,3 +1,4 @@
+import { PRE_ASSESSMENT_100, PRE_ASSESSMENT_60, PRE_ASSESSMENT_DEFAULT } from "../../constants";
 import {BalanceSheetMockData} from "../../mockedData/BalanceSheetMockData";
 import { BALANCE_SHEET_FETCH_FAILURE, BALANCE_SHEET_FETCH_SUCCESS, DECISION_FETCH_SUCCESS, DECISION_FETCH_ERROR } from "./SheetActionTypes";
 
@@ -45,9 +46,9 @@ function getPreAssessment(data, loanAmt) {
         profit+= item.profitOrLoss;
         totalAsset+= item.assetsValue;
     })
-    if(totalAsset/12 > loanAmt) return [profit,"100"];
-    if(profit>0) return [profit,"60"];
-    return [profit,"20"];
+    if(totalAsset/12 > loanAmt) return [profit,PRE_ASSESSMENT_100];
+    if(profit>0) return [profit,PRE_ASSESSMENT_60];
+    return [profit,PRE_ASSESSMENT_DEFAULT];
 }
 
 

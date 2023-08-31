@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import BalanceSheetTableView from "./BalanceSheetTableView";
 import DetailsView from "./DetailsView";
+import { APPLICATION_NAME } from "../constants";
 
 class ReviewDetails extends React.Component {
   constructor() {
@@ -42,7 +43,7 @@ class ReviewDetails extends React.Component {
               color="inherit"
               noWrap
             >
-              Loan Application
+              {APPLICATION_NAME}
             </Typography>
           </Toolbar>
         </AppBar>
